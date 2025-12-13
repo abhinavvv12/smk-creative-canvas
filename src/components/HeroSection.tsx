@@ -25,8 +25,8 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="inline-block text-gold text-sm tracking-[0.3em] uppercase mb-6 font-medium">
-              Premium Creative Agency
+            <span className="inline-block text-gold text-lg mb-6 font-bold">
+              Marketing Agency
             </span>
           </motion.div>
 
@@ -56,36 +56,21 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex justify-center"
           >
-            <Button variant="gold" size="xl" className="group">
-              Start Your Journey
+            <Button 
+              variant="gold" 
+              size="xl" 
+              className="group"
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Explore Services
               <ArrowRight className="transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="gold-outline" size="xl">
-              View Our Work
             </Button>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs tracking-widest uppercase text-foreground/50">
-              Scroll
-            </span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-px h-12 bg-gradient-to-b from-gold to-transparent"
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
