@@ -55,29 +55,6 @@ export const AboutSection = () => {
             </motion.div>
           </div>
 
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-16 border-t border-border"
-          >
-            {[
-              { value: "150+", label: "Projects Delivered" },
-              { value: "12", label: "Years Experience" },
-              { value: "98%", label: "Client Satisfaction" },
-              { value: "45+", label: "Industry Awards" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-display text-gold mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-foreground/60 tracking-wide uppercase">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
