@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
-import smkLogo from "@/assets/smk-logo-transparent.png";
+import smkLogo from "@/assets/smk-logo-blended.png";
 
 const footerLinks = {
   company: [
@@ -26,11 +26,21 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <a href="#home" className="inline-flex items-center gap-4 mb-6 group">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-radial from-gold/10 to-transparent rounded-full blur-lg" />
+                {/* Soft diffused glow */}
+                <div 
+                  className="absolute inset-0 w-20 h-20 -m-3 rounded-full blur-xl"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(180,150,100,0.08) 0%, transparent 70%)'
+                  }}
+                />
                 <img 
                   src={smkLogo} 
                   alt="SMK Creatives Logo" 
-                  className="w-14 h-14 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(180,150,100,0.1)]"
+                  className="w-16 h-16 object-contain relative z-10"
+                  style={{
+                    filter: 'drop-shadow(0 0 20px rgba(180, 150, 100, 0.06))',
+                    opacity: 0.95
+                  }}
                 />
               </div>
               <div>
