@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import smkLogo from "@/assets/smk-logo-blended.png";
+import smkLogo from "@/assets/smk-logo.png";
 
 export const HeroSection = () => {
   return (
@@ -21,41 +21,19 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Logo - Organically embedded */}
+          {/* Logo - Seamlessly blended */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-4 relative"
+            className="mb-2 relative"
           >
-            {/* Outer diffused glow layer */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div 
-                className="w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, rgba(180,150,100,0.08) 0%, rgba(180,150,100,0.03) 40%, transparent 70%)'
-                }}
-              />
-            </div>
-            
-            {/* Inner soft glow */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div 
-                className="w-48 h-48 md:w-64 md:h-64 rounded-full blur-2xl"
-                style={{
-                  background: 'radial-gradient(circle, rgba(200,180,140,0.06) 0%, transparent 60%)'
-                }}
-              />
-            </div>
-            
-            {/* Logo with seamless blending */}
-            <img 
-              src={smkLogo} 
-              alt="SMK Creatives Logo" 
-              className="w-40 h-40 md:w-56 md:h-56 mx-auto object-contain relative z-10"
+            <div 
+              className="w-44 h-44 md:w-60 md:h-60 mx-auto rounded-full"
               style={{
-                filter: 'drop-shadow(0 0 40px rgba(180, 150, 100, 0.08)) drop-shadow(0 0 80px rgba(180, 150, 100, 0.04))',
-                opacity: 0.95,
+                background: `url(${smkLogo}) center/contain no-repeat`,
+                maskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
+                WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
               }}
             />
           </motion.div>
