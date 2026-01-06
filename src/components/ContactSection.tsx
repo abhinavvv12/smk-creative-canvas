@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, MapPin, Phone, Mail } from "lucide-react";
+import { Send, Phone, Mail, ArrowRight } from "lucide-react";
 
 export const ContactSection = () => {
   const ref = useRef(null);
@@ -55,22 +55,30 @@ export const ContactSection = () => {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center border border-gold/30">
-                    <MapPin className="w-5 h-5 text-gold" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-foreground/50 uppercase tracking-wide">
-                      Location
+                {/* Email - Primary Contact */}
+                <div className="p-6 bg-espresso-light/50 rounded-xl border border-gold/20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-12 h-12 flex items-center justify-center bg-gold/10 rounded-lg">
+                      <Mail className="w-5 h-5 text-gold" />
                     </div>
-                    <div className="text-foreground/80">
-                      123 Creative Avenue, Design District
+                    <div>
+                      <div className="text-gold font-medium">
+                        Email us for a consultation
+                      </div>
                     </div>
                   </div>
+                  <a 
+                    href="mailto:hello@smkcreatives.com" 
+                    className="text-xl md:text-2xl text-cream font-display hover:text-gold transition-colors flex items-center gap-2 group"
+                  >
+                    hello@smkcreatives.com
+                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  </a>
                 </div>
 
+                {/* Phone */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center border border-gold/30">
+                  <div className="w-12 h-12 flex items-center justify-center border border-gold/30 rounded-lg">
                     <Phone className="w-5 h-5 text-gold" />
                   </div>
                   <div>
@@ -78,18 +86,6 @@ export const ContactSection = () => {
                       Phone
                     </div>
                     <div className="text-foreground/80">+1 (555) 123-4567</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center border border-gold/30">
-                    <Mail className="w-5 h-5 text-gold" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-foreground/50 uppercase tracking-wide">
-                      Email
-                    </div>
-                    <div className="text-foreground/80">hello@smkcreatives.com</div>
                   </div>
                 </div>
               </div>
@@ -101,67 +97,70 @@ export const ContactSection = () => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <div className="bg-espresso-light/30 p-8 rounded-2xl border border-border/20">
+                <h3 className="font-display text-xl text-cream mb-6">Quick Inquiry</h3>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
+                        Name
+                      </label>
+                      <Input
+                        type="text"
+                        required
+                        className="bg-espresso border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30 rounded-lg"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
+                        Email
+                      </label>
+                      <Input
+                        type="email"
+                        required
+                        className="bg-espresso border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30 rounded-lg"
+                        placeholder="Your email"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
-                      Name
+                      Subject
                     </label>
                     <Input
                       type="text"
                       required
-                      className="bg-espresso-light border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30"
-                      placeholder="Your name"
+                      className="bg-espresso border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30 rounded-lg"
+                      placeholder="Project inquiry"
                     />
                   </div>
+
                   <div>
                     <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
-                      Email
+                      Message
                     </label>
-                    <Input
-                      type="email"
+                    <Textarea
                       required
-                      className="bg-espresso-light border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30"
-                      placeholder="Your email"
+                      rows={4}
+                      className="bg-espresso border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30 resize-none rounded-lg"
+                      placeholder="Tell us about your project..."
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
-                    Subject
-                  </label>
-                  <Input
-                    type="text"
-                    required
-                    className="bg-espresso-light border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30"
-                    placeholder="Project inquiry"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-foreground/60 mb-2 uppercase tracking-wide">
-                    Message
-                  </label>
-                  <Textarea
-                    required
-                    rows={5}
-                    className="bg-espresso-light border-border/50 focus:border-gold text-foreground placeholder:text-foreground/30 resize-none"
-                    placeholder="Tell us about your project..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="gold"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="w-4 h-4" />
-                </Button>
-              </form>
+                  <Button
+                    type="submit"
+                    variant="gold"
+                    size="lg"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    <Send className="w-4 h-4" />
+                  </Button>
+                </form>
+              </div>
             </motion.div>
           </div>
         </div>

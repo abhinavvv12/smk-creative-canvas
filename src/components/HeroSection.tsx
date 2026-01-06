@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import smkLogo from "@/assets/smk-logo.png";
 
 export const HeroSection = () => {
   return (
@@ -20,6 +21,20 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <img 
+              src={smkLogo} 
+              alt="SMK Creatives Logo" 
+              className="w-24 h-24 md:w-32 md:h-32 mx-auto object-contain"
+            />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
