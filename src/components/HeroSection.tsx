@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import smkLogo from "@/assets/smk-logo.png";
+import smkLogo from "@/assets/smk-logo-transparent.png";
 
 export const HeroSection = () => {
   return (
@@ -21,17 +21,25 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Logo */}
+          {/* Logo - Seamlessly blended */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="mb-6 relative"
           >
+            {/* Soft glow behind logo */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-40 h-40 md:w-52 md:h-52 bg-gradient-radial from-gold/10 via-gold/5 to-transparent rounded-full blur-2xl" />
+            </div>
             <img 
               src={smkLogo} 
               alt="SMK Creatives Logo" 
-              className="w-24 h-24 md:w-32 md:h-32 mx-auto object-contain"
+              className="w-32 h-32 md:w-44 md:h-44 mx-auto object-contain relative z-10 drop-shadow-[0_0_30px_rgba(180,150,100,0.15)]"
+              style={{
+                filter: 'drop-shadow(0 0 20px rgba(180, 150, 100, 0.1))',
+                mixBlendMode: 'normal'
+              }}
             />
           </motion.div>
 
