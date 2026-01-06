@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import smkLogo from "@/assets/smk-logo-transparent.png";
+import smkLogo from "@/assets/smk-logo-blended.png";
 
 export const HeroSection = () => {
   return (
@@ -21,24 +21,41 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Logo - Seamlessly blended */}
+          {/* Logo - Organically embedded */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-6 relative"
+            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mb-4 relative"
           >
-            {/* Soft glow behind logo */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-40 h-40 md:w-52 md:h-52 bg-gradient-radial from-gold/10 via-gold/5 to-transparent rounded-full blur-2xl" />
+            {/* Outer diffused glow layer */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div 
+                className="w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(180,150,100,0.08) 0%, rgba(180,150,100,0.03) 40%, transparent 70%)'
+                }}
+              />
             </div>
+            
+            {/* Inner soft glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div 
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full blur-2xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(200,180,140,0.06) 0%, transparent 60%)'
+                }}
+              />
+            </div>
+            
+            {/* Logo with seamless blending */}
             <img 
               src={smkLogo} 
               alt="SMK Creatives Logo" 
-              className="w-32 h-32 md:w-44 md:h-44 mx-auto object-contain relative z-10 drop-shadow-[0_0_30px_rgba(180,150,100,0.15)]"
+              className="w-40 h-40 md:w-56 md:h-56 mx-auto object-contain relative z-10"
               style={{
-                filter: 'drop-shadow(0 0 20px rgba(180, 150, 100, 0.1))',
-                mixBlendMode: 'normal'
+                filter: 'drop-shadow(0 0 40px rgba(180, 150, 100, 0.08)) drop-shadow(0 0 80px rgba(180, 150, 100, 0.04))',
+                opacity: 0.95,
               }}
             />
           </motion.div>
