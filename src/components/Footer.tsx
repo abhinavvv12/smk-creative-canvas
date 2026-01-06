@@ -1,17 +1,18 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import smkLogo from "@/assets/smk-logo.png";
 
 const footerLinks = {
   company: [
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Portfolio", href: "#" },
-    { label: "Careers", href: "#" },
+    { label: "Packages", href: "#packages" },
+    { label: "Contact", href: "#contact" },
   ],
   services: [
     { label: "Brand Identity", href: "#services" },
     { label: "Digital Marketing", href: "#services" },
-    { label: "Creative Design", href: "#services" },
-    { label: "Consulting", href: "#services" },
+    { label: "Social Media", href: "#services" },
+    { label: "Web Design", href: "#services" },
   ],
 };
 
@@ -23,13 +24,20 @@ export const Footer = () => {
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#home" className="inline-block mb-6">
-              <span className="text-2xl font-display font-semibold text-gold">
-                SMK
-              </span>
-              <span className="text-lg font-body text-foreground/80 ml-2 tracking-widest uppercase">
-                Creatives
-              </span>
+            <a href="#home" className="inline-flex items-center gap-4 mb-6">
+              <img 
+                src={smkLogo} 
+                alt="SMK Creatives Logo" 
+                className="w-12 h-12 object-contain"
+              />
+              <div>
+                <span className="text-2xl font-display font-semibold text-gold">
+                  SMK
+                </span>
+                <span className="text-lg font-body text-foreground/80 ml-2 tracking-widest uppercase">
+                  Creatives
+                </span>
+              </div>
             </a>
             <p className="text-foreground/60 max-w-md leading-relaxed mb-8">
               A distinguished creative marketing agency dedicated to crafting 
@@ -40,7 +48,7 @@ export const Footer = () => {
                 <a
                   key={index}
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center border border-border/50 text-foreground/60 hover:text-gold hover:border-gold/50 transition-colors duration-300"
+                  className="w-10 h-10 flex items-center justify-center border border-border/50 rounded-lg text-foreground/60 hover:text-gold hover:border-gold/50 transition-colors duration-300"
                   aria-label="Social media link"
                 >
                   <Icon className="w-4 h-4" />
